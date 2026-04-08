@@ -8,11 +8,11 @@
 
 🎯 Architecture Overview
 ```
-✅ EKS (Kubernetes Cluster)
-✅ RDS (Postgres)
-✅ ElastiCache (Redis)
-✅ Monitoring (CloudWatch, SNS)
-✅ GitHub Actions CI/CD
+✅ API Gateway → Lambda (validation)
+✅ SQS for buffering
+✅ Lambda workers for async processing
+✅ DynamoDB for storage
+✅ SNS for notifications
 ```
 
 
@@ -33,9 +33,5 @@ terraform init
 terraform validate
 terraform plan -var-file="template.tfvars"
 terraform apply -var-file="template.tfvars" -auto-approve
-
-# Development
-terraform apply -var-file=environments/dev.tfvars 
-terraform apply -var-file=environments/staging.tfvars
 ```
 
