@@ -1,8 +1,8 @@
-<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/a433ed19-dfe8-402b-aa3f-7d49b873ba56" />
 
 
-## AWS Infrastrucure | Workflow
-This design represents a cloud-native infrastructure platform built on AWS, fully automated using Infrastructure as Code (Terraform) and CI/CD pipelines via GitHub and GitHub Actions.
+
+## AWS Serverless | Workflow
+
 
 
 
