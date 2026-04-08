@@ -16,13 +16,12 @@
 ```
 
 
-🧱 Features
+🧱 Package Lambdas
 ```
-✔ Fully automated provisioning with Terraform
-✔ High availability using multiple subnets in different Availability Zones
-✔ Secure connectivity between Lambda and RDS
-✔ Configurable environment variables for database credentials
-✔ Easy to extend for other JSON data source
+cd functions
+zip createOrder.zip createOrder.js
+zip processOrder.zip processOrder.js
+zip notifyUser.zip notifyUser.js
 ```
 
 
