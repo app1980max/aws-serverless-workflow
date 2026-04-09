@@ -9,3 +9,7 @@ output "topic_arn" {
 output "table_name" {
   value = module.dynamodb.table_name
 }
+
+output "api_url" {
+  value = module.api.api_url
+}
