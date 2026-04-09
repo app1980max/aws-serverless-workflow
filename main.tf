@@ -49,6 +49,13 @@ resource "aws_iam_role_policy_attachment" "lambda_basic_execution" {
 }
 
 
+resource "aws_iam_role_policy_attachment" "lambda_sqs" {
+  role       = aws_iam_role.lambda_exec.name
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaSQSQueueExecutionRole"
+}
+
+
+
 # ========================
 # Lambda Functions
 # ========================
@@ -86,10 +93,15 @@ module "lambda_notify" {
 # ========================
 # Event Wiring
 # ========================
+
 resource "aws_lambda_event_source_mapping" "sqs_trigger" {
   event_source_arn = module.sqs.queue_arn
   function_name    = module.lambda_process.function_arn
   batch_size       = 10
+
+  depends_on = [
+    aws_iam_role_policy_attachment.lambda_sqs
+  ]
 }
 
 resource "aws_sns_topic_subscription" "notify_sub" {

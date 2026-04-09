@@ -6,6 +6,8 @@ resource "aws_lambda_function" "this" {
   filename      = var.file_path
   role          = var.role_arn   # <-- add this line
 
+  timeout = 10   # 🔥 IMPORTANT
+
   environment {
     variables = var.environment
   }
