@@ -1,5 +1,6 @@
+
 resource "aws_sns_topic" "this" {
-  name = "orders-topic"
+  name = var.name
 }
 
 output "topic_arn" {
