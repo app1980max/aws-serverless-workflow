@@ -152,9 +152,4 @@ resource "aws_lambda_permission" "api_invoke" {
   principal     = "apigateway.amazonaws.com"
 }
 
-# ========================
-# OUTPUT
-# ========================
-output "api_url" {
-  value = aws_apigatewayv2_api.api.api_endpoint
-}
+
