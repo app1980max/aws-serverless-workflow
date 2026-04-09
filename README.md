@@ -23,7 +23,6 @@ zip notifyUser.zip notifyUser.js
 ```
 
 
-
 🚀 Deployment Options
 ```
 terraform init
@@ -31,4 +30,17 @@ terraform validate
 terraform plan -var-file="template.tfvars"
 terraform apply -var-file="template.tfvars" -auto-approve
 ```
+
+🔎 Query
+```
+curl -X POST https://zo1ehal9pf.execute-api.us-west-2.amazonaws.com/orders \
+  -H "Content-Type: application/json" \
+  -d '{
+    "items": ["book"],
+    "userEmail": "test@example.com"
+  }'
+
+{"message":"Order created","orderId":"1775750215685"}
+```
+
 
