@@ -56,6 +56,24 @@ resource "aws_iam_role_policy_attachment" "lambda_sqs" {
 
 
 
+# 3️⃣ Inline policy to allow sending messages to SQS
+resource "aws_iam_role_policy" "lambda_sqs_send" {
+  name = "lambda_sqs_send_policy"
+  role = aws_iam_role.lambda_exec.id
+
+  policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [
+      {
+        Effect   = "Allow"
+        Action   = ["sqs:SendMessage"]
+        Resource = "arn:aws:sqs:us-west-2:552775148196:orders-queue"
+      }
+    ]
+  })
+}
+
+
 # ========================
 # Lambda Functions
 # ========================
