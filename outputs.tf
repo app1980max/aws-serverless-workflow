@@ -1,4 +1,4 @@
 
 output "api_url" {
-  value = module.api.api_url
+  value = aws_apigatewayv2_api.api.api_endpoint
 }
