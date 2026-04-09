@@ -1,9 +1,7 @@
-<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/0893fb45-f126-4762-85f0-5c92d37becea" />
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/873eb11b-4c43-4fa1-bb03-78b4ea9dabb0" />
 
 
 ## AWS Serverless | Workflow
-
-
 
 
 🎯 Architecture Overview
