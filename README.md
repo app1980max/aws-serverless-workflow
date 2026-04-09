@@ -39,8 +39,6 @@ curl -X POST https://zo1ehal9pf.execute-api.us-west-2.amazonaws.com/orders \
     "items": ["book"],
     "userEmail": "test@example.com"
   }'
-
-{"message":"Order created","orderId":"1775750215685"}
 ```
 
 
