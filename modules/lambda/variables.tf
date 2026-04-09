@@ -1,7 +1,8 @@
 
 variable "function_name" {}
 variable "handler" {}
-variable "file_path" {}
+variable "filename" {}
+
 variable "environment" {
   default = {}
 }
