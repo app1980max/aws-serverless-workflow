@@ -46,6 +46,27 @@ module "lambda_notify" {
   file_path     = "./functions/notifyUser.zip"
 }
 
+# Event Wiring
 
+# SQS → Lambda
+resource "aws_lambda_event_source_mapping" "sqs_trigger" {
+  event_source_arn = module.sqs.queue_arn
+  function_name    = module.lambda_process.function_arn
+}
+
+# SNS → Lambda
+resource "aws_sns_topic_subscription" "notify_sub" {
+  topic_arn = module.sns.topic_arn
+  protocol  = "lambda"
+  endpoint  = module.lambda_notify.function_arn
+}
+
+resource "aws_lambda_permission" "sns_invoke" {
+  statement_id  = "AllowSNSInvoke"
+  action        = "lambda:InvokeFunction"
+  function_name = module.lambda_notify.function_name
+  principal     = "sns.amazonaws.com"
+  source_arn    = module.sns.topic_arn
+}
 
 
